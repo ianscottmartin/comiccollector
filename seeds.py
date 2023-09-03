@@ -3,14 +3,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-engine = create_engine("sqlite///comicbkdata.db")
+engine = create_engine("sqlite:///comicbkdata.db")
 
-Session = sessionmaker()
+Session = sessionmaker(bind=engine)
 session = Session()
 
 
-users =
-[User(), User(), User()]
+users = [User(), User(), User()]
 
 session.bulk_save_objects(users)
 session.commit()
